@@ -21,6 +21,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { TeacherComponent } from './teacher/teacher.component';
 import { DevicesComponent } from './devices/devices.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeviceListComponent } from './device-list/device-list.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FetchDataComponent,
     StudentsComponent,
     TeacherComponent,
-    DevicesComponent
+    DevicesComponent,
+    DeviceListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

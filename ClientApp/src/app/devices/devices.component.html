@@ -58,6 +58,7 @@ Department
     <!-- System Type Column -->
     <ng-container matColumnDef="systemType">
       <th mat-header-cell *matHeaderCellDef> Sys Type </th>
+      <input [(ngModel)]="device.systemType" name="systemType" type="text" style="width: 200px;"/>
       <td mat-cell *matCellDef="let element"> {{element.systemType}} </td>
     </ng-container>
   
