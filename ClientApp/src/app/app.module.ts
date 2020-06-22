@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -14,6 +19,8 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { TeacherComponent } from './teacher/teacher.component';
+import { DevicesComponent } from './devices/devices.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +30,8 @@ import { TeacherComponent } from './teacher/teacher.component';
     CounterComponent,
     FetchDataComponent,
     StudentsComponent,
-    TeacherComponent
+    TeacherComponent,
+    DevicesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,7 +44,14 @@ import { TeacherComponent } from './teacher/teacher.component';
         { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
         { path: 'students', component: StudentsComponent, canActivate: [AuthorizeGuard] },
         { path: 'teachers', component: TeacherComponent, canActivate: [AuthorizeGuard] },
-    ])
+        { path: 'devices', component: DevicesComponent, canActivate: [AuthorizeGuard] }
+    ]),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

@@ -1,0 +1,51 @@
+<h1 id="tableLabel">Devices</h1>
+
+<p *ngIf="!devices"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="devices">
+  <thead>
+    <tr>
+      <th>System Type</th>
+      <th>Make</th>
+      <th>System Name</th>
+    </tr>
+  </thead>
+</table>
+System Type
+<input [(ngModel)]="device.systemType" name="systemType" type="text" style="width: 200px;"/>
+Maker
+<input [(ngModel)]="device.maker" name="maker" type="text" style="width: 200px;"/>
+System Name
+<input [(ngModel)]="device.systemName" name="systemName" type="text" style="width: 200px;"/>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="devices">
+    <thead>
+        <tr>
+            <th>Purchase Date</th>
+            <th>Is Assigned</th>
+            <th>Org</th>
+            <th>Dept</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of devices">
+            <td>{{ d.systemType }}</td>
+            <td>{{ d.maker }}</td>
+            <td>{{ d.systemName }}</td>      
+            <td>{{ d.datePurchased }}</td>
+            <td type="checkbox">{{ d.isAssigned }}</td>
+            <td>{{ d.organization }}</td>
+            <td>{{ d.department }}</td>
+        </tr>
+    </tbody>
+</table>
+Date Purchased
+<input [(ngModel)]="device.datePurchased" name="datePurchased"type="Date" style="width: 200px;"/>
+Is Assigned
+<input [(ngModel)]="device.isAssigned" name="isAssigned" type="checkbox" />
+Organization
+<input [(ngModel)]="device.organization" name="organization" type="text" style="width: 200px;"/>
+Department
+<input [(ngModel)]="device.department" name="department" type="text" style="width: 200px;"/>
+  
+<button (click)="save()">Save</button>
