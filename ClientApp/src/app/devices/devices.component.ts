@@ -20,11 +20,15 @@ export class DevicesComponent implements OnInit {
     };
     public devices: IDevices[] = [];
 
-    constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
+    displayedColumns: string[] = ['systemType', 'maker', 'systemName', 'datePurchased', 'isAssigned', 'organization', 'department'];
+    dataSource = [];
 
-    }
+    constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {}
+
     async ngOnInit() {
         this.devices = await this.http.get<IDevices[]>(this.baseUrl + 'devices').toPromise();
+        this.dataSource = this.devices;
+
     }
     async save() {
         await this.http.post<IDevices[]>(this.baseUrl + 'devices', this.device).toPromise();
