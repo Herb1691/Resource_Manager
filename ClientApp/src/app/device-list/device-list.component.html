@@ -1,1 +1,51 @@
-<p>device-list works!</p>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- System Type Column -->
+    <ng-container matColumnDef="systemType">
+      <th mat-header-cell *matHeaderCellDef> Sys Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.systemType}} </td>
+    </ng-container>
+  
+    <!-- Make Column -->
+    <ng-container matColumnDef="maker">
+      <th mat-header-cell *matHeaderCellDef> Make </th>
+      <td mat-cell *matCellDef="let element"> {{element.maker}} </td>
+    </ng-container>
+  
+    <!-- Sys Name Column -->
+    <ng-container matColumnDef="systemName">
+      <th mat-header-cell *matHeaderCellDef> Sys Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.systemName}} </td>
+    </ng-container>
+  
+    <!-- Purchased Column -->
+    <ng-container matColumnDef="datePurchased">
+      <th mat-header-cell *matHeaderCellDef> Purchased Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.datePurchased}} </td>
+    </ng-container>
+
+    <!-- Assigned Column -->
+    <ng-container matColumnDef="isAssigned">
+        <th mat-header-cell *matHeaderCellDef> Assigned </th>
+        <td mat-cell *matCellDef="let element"> {{element.isAssigned}} </td>
+    </ng-container>
+
+    <!-- Org Column -->
+    <ng-container matColumnDef="organization">
+        <th mat-header-cell *matHeaderCellDef> Org </th>
+        <td mat-cell *matCellDef="let element"> {{element.organization}} </td>
+    </ng-container>
+
+    <!-- Dept Column -->
+    <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef> Dept </th>
+        <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+    </ng-container>
+          
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
